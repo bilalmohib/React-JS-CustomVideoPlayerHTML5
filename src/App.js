@@ -155,13 +155,17 @@ let count = 0;
 
 function App() {
   const classes = useStyles();
+
   const [showControls, setShowControls] = useState(false);
   // const [count, setCount] = useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [timeDisplayFormat, setTimeDisplayFormat] = React.useState("normal");
   const [bookmarks, setBookmarks] = useState([]);
+
+  const [PIP,SETPIP] = useState(false);
+
   const [state, setState] = useState({
-    pip: false,
+    pip: true,
     playing: true,
     controls: false,
     light: false,
@@ -179,11 +183,11 @@ function App() {
   const playerContainerRef = useRef(null);
   const controlsRef = useRef(null);
   const canvasRef = useRef(null);
+
   const {
     playing,
     controls,
     light,
-
     muted,
     loop,
     playbackRate,
@@ -192,6 +196,7 @@ function App() {
     seeking,
     volume,
   } = state;
+
 
   const handlePlayPause = () => {
     setState({ ...state, playing: !state.playing });
@@ -279,34 +284,13 @@ function App() {
     setState({ ...state, muted: !state.muted });
   };
 
-  const hanldePip = (e) => {
-    console.log("The control is ==> ",e);
+  const handlePip = () => {
+    SETPIP(!PIP)
   };
 
-  // const addBookmark = () => {
-  //   const canvas = canvasRef.current;
-  //   canvas.width = 160;
-  //   canvas.height = 90;
-  //   const ctx = canvas.getContext("2d");
+  const onPause = () => {
 
-  //   ctx.drawImage(
-  //     playerRef.current.getInternalPlayer(),
-  //     0,
-  //     0,
-  //     canvas.width,
-  //     canvas.height
-  //   );
-  //   const dataUri = canvas.toDataURL();
-  //   canvas.width = 0;
-  //   canvas.height = 0;
-  //   const bookmarksCopy = [...bookmarks];
-  //   bookmarksCopy.push({
-  //     time: playerRef.current.getCurrentTime(),
-  //     display: format(playerRef.current.getCurrentTime()),
-  //     image: dataUri,
-  //   });
-  //   setBookmarks(bookmarksCopy);
-  // };
+  }
 
   const currentTime =
     playerRef && playerRef.current
@@ -337,12 +321,13 @@ function App() {
           ref={playerContainerRef}
           className={classes.playerWrapper}
         >
+
           <ReactPlayer
             ref={playerRef}
             width="100%"
             height="100%"
             url={video}
-            pip={true}
+            pip={PIP}
             playing={playing}
             controls={false}
             light={light}
@@ -350,6 +335,8 @@ function App() {
             playbackRate={playbackRate}
             volume={volume}
             muted={muted}
+            onPause={onPause}
+            playsinline={true}
             onProgress={handleProgress}
             config={{
               file: {
@@ -382,34 +369,11 @@ function App() {
             onPlaybackRateChange={handlePlaybackRate}
             onToggleFullScreen={toggleFullScreen}
             volume={volume}
-            onPip={(e)=>hanldePip(e)}
+            onHandlePIP={handlePip}
           // onBookmark={addBookmark}
           />
         </div>
-
-        {/* <Grid container style={{ marginTop: 20 }} spacing={3}>
-          {bookmarks.map((bookmark, index) => (
-            <Grid key={index} item>
-              <Paper
-                onClick={() => {
-                  playerRef.current.seekTo(bookmark.time);
-                  controlsRef.current.style.visibility = "visible";
-
-                  setTimeout(() => {
-                    controlsRef.current.style.visibility = "hidden";
-                  }, 1000);
-                }}
-                elevation={3}
-              >
-                <img crossOrigin="anonymous" src={bookmark.image} />
-                <Typography variant="body2" align="center">
-                  bookmark at {bookmark.display}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid> */}
-        {/* <canvas ref={canvasRef} /> */}
+      
       </Container>
     </>
   );
