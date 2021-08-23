@@ -13,200 +13,360 @@
     #MobilePlayer {
         display: initial;
     }
+    .WholeControlsMobile {
+        border: 2px solid yellow !important;
+        margin-top: 110px !important;
+    }
     #DesktopPlayer {
         display: none;
     }
-    .MobileControlIcons {
+    .bottomIconsMobile {
+        margin-left: 150px !important;
     }
+}
+
+@media all and (max-width:564px) {
+    .bottomIconsMobile {
+        margin-left: 130px !important;
+    }
+}
+
+@media all and (max-width:550px) {
     .bottomIconsMobile {
         margin-left: 120px !important;
     }
 }
-@media all and (max-width:550px) {
+
+@media all and (max-width:530px) {
     .bottomIconsMobile {
         margin-left: 100px !important;
     }
 }
 @media all and (max-width:520px) {
     .bottomIconsMobile {
+        margin-left: 90px !important;
+    }
+}
+
+@media all and (max-width:500px) {
+    .bottomIconsMobile {
         margin-left: 80px !important;
     }
 }
-@media all and (max-width:500px) {
-    .bottomIconsMobile {
-        margin-left: 70px !important;
-    }
-}
+
 @media all and (max-width:490px) {
     .bottomIconsMobile {
         margin-left: 60px !important;
     }
 }
+
 @media all and (max-width:480px) {
     .bottomIconsMobile {
         margin-left: 50px !important;
     }
 }
+
 @media all and (max-width:468px) {
     .bottomIconsMobile {
         margin-left: 40px !important;
     }
 }
+
 @media all and (max-width:457px) {
     .bottomIconsMobile {
         margin-left: 30px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
         margin-bottom: 40px !important;
     }
 }
+
 @media all and (max-width:447px) {
     .bottomIconsMobile {
         margin-left: 20px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:439px) {
     .bottomIconsMobile {
         margin-left: 10px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:429px) {
     .bottomIconsMobile {
         margin-left: 3px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:422px) {
     .bottomIconsMobile {
         margin-left: 0px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:419px) {
     .bottomIconsMobile {
         margin-left: -20px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:410px) {
     .bottomIconsMobile {
         margin-left: -30px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
 }
+
 @media all and (max-width:389px) {
     .bottomIconsMobile {
         margin-left: -40px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
         border: 1px solid grey !important;
     }
+    .ProgressBarMobile {
+        margin-top: 0px !important;
+    }
 }
+
 @media all and (max-width:379px) {
-    .bottomIconsMobile {
-        margin-left: -50px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:369px) {
-    .bottomIconsMobile {
-        margin-left: -60px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:359px) {
-    .bottomIconsMobile {
-        margin-left: -70px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:349px) {
-    .bottomIconsMobile {
-        margin-left: -80px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:339px) {
-    .bottomIconsMobile {
-        margin-left: -90px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:329px) {
-    .bottomIconsMobile {
-        margin-left: -100px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:319px) {
-    .bottomIconsMobile {
-        margin-left: -110px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:309px) {
-    .bottomIconsMobile {
-        margin-left: -120px !important;
-    }
-    .MobileControlsDaikh
-    {
-        border: 1px solid grey !important;
-    }
-}
-@media all and (max-width:300px) {
     .bottomIconsMobile {
         display: none !important;
     }
-    .volumeMobile
-    {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: 20px !important;
+    }
+    .ProgressBarMobile {
+        margin-top: 0px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -10px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:364px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: 13px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -20px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:357px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: 7px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -20px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:350px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: 2px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -20px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:345px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -3px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:341px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -7px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:336px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -12px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:332px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -0px !important;
+    }
+    .volumeMobile {
         margin-left: -20px !important;
     }
-    .MobileControlsDaikh
-    {
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:327px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -5px !important;
+    }
+    .volumeMobile {
+        margin-left: -20px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:322px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -10px !important;
+    }
+    .volumeMobile {
+        margin-left: -23px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:314px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -15px !important;
+    }
+    .volumeMobile {
+        margin-left: -25px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:308px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -10px !important;
+    }
+    .volumeMobile {
+        margin-left: -25px !important;
+    }
+    .PlayPauseIconMobile {
+        margin-left: -10px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:306px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -15px !important;
+    }
+    .volumeMobile {
+        margin-left: -25px !important;
+    }
+    .PlayPauseIconMobile {
+        margin-left: -10px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:302px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -10px !important;
+    }
+    .volumeMobile {
+        margin-left: -28px !important;
+    }
+    .PlayPauseIconMobile {
+        margin-left: -15px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:299px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -12px !important;
+    }
+    .volumeMobile {
+        margin-left: -28px !important;
+    }
+    .PlayPauseIconMobile {
+        margin-left: -20px !important;
+    }
+    .MobileControlsDaikh {
+        margin-top: -33px !important;
+        border: 1px solid grey !important;
+    }
+}
+
+@media all and (max-width:292px) {
+    .bottomIconsMobile2 {
+        /* display: none !important; */
+        margin-left: -15px !important;
+    }
+    .volumeMobile {
+        margin-left: -32px !important;
+    }
+    .PlayPauseIconMobile {
+        margin-left: -22px !important;
+    }
+    .MobileControlsDaikh {
         margin-top: -33px !important;
         border: 1px solid grey !important;
     }

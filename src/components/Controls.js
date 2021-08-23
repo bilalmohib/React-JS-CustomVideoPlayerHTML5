@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     bottom: 0,
     height: "100%",
-    background: "rgba(0,0,0,0.6)",
+    background: "rgba(0,0,0,0)",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -64,9 +64,11 @@ const useStyles = makeStyles((theme) => ({
   },
   volumeSlider: {
     width: 100,
+    color:"#fff",
   },
   volumeSliderMobile: {
     width: 50,
+    color:"#fff",
   },
 }));
 
@@ -85,24 +87,29 @@ const PrettoSlider = withStyles({
       boxShadow: "inherit",
     },
   },
-  active: {},
+  active: {
+    color:"white"
+  },
   valueLabel: {
     left: "calc(-50% + 4px)",
   },
   track: {
     height: 8,
     borderRadius: 4,
+    color:"white",
+    background:"#fff"
   },
   rail: {
     height: 8,
     borderRadius: 4,
+    color:"white",
   },
 })(Slider);
 
 const PrettoSliderMobile = withStyles({
   root: {
     height: 8,
-    marginTop:-5,
+    marginTop:15,
   },
   thumb: {
     height: 12,
@@ -451,6 +458,7 @@ const Controls = forwardRef(
               direction="row"
               justify="space-between"
               alignItems="center"
+              className="WholeControlsMobile"
               style={{ padding: 10 }}
             >
               <Grid item xs={12}>
@@ -463,6 +471,7 @@ const Controls = forwardRef(
                   aria-label="custom thumb label"
                   value={played * 100}
                   onChange={onSeek}
+                  className="ProgressBarMobile"
                   onMouseDown={onSeekMouseDown}
                   onChangeCommitted={onSeekMouseUp}
                   onDuration={onDuration}
@@ -477,7 +486,7 @@ const Controls = forwardRef(
                 <Grid container className="MobileControlsDaikh" alignItems="center">
                   <IconButton
                     onClick={onPlayPause}
-                    className={classes.bottomIcons}
+                    className={`PlayPauseIconMobile ${classes.bottomIcons}`}
                   >
                     {playing ? (
                       <PauseIcon fontSize="small" />
@@ -573,7 +582,7 @@ const Controls = forwardRef(
                   </Popover>
                   <IconButton
                     onClick={onToggleFullScreen}
-                    className={`bottomIconsMobile ${classes.bottomIcons}`}
+                    className={`bottomIconsMobile2 ${classes.bottomIcons}`}
                   >
                     <FullScreen fontSize="normal" />
                   </IconButton>
