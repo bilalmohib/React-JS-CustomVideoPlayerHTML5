@@ -8,6 +8,8 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import FastRewindIcon from "@material-ui/icons/FastRewind";
 import FastForwardIcon from "@material-ui/icons/FastForward";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import PlayCircleOutlineTwoToneIcon from '@material-ui/icons/PlayCircleOutlineTwoTone';
+import PauseCircleOutlineTwoToneIcon from '@material-ui/icons/PauseCircleOutlineTwoTone';
 import PauseIcon from "@material-ui/icons/Pause";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -60,15 +62,16 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#fff",
     },
-    marginLeft:150
+    marginLeft: 150
   },
   volumeSlider: {
     width: 100,
-    color:"#fff",
+    marginBottom: -10,
+    color: "#fff",
   },
   volumeSliderMobile: {
     width: 50,
-    color:"#fff",
+    color: "#fff",
   },
 }));
 
@@ -77,39 +80,39 @@ const PrettoSlider = withStyles({
     height: 8,
   },
   thumb: {
-    height: 24,
-    width: 24,
+    height: 15,
+    width: 15,
     backgroundColor: "#fff",
     border: "2px solid currentColor",
-    marginTop: -8,
-    marginLeft: -12,
+    marginTop: -5,
+    marginLeft: -8,
     "&:focus, &:hover, &$active": {
       boxShadow: "inherit",
     },
   },
   active: {
-    color:"white"
+    color: "white"
   },
   valueLabel: {
     left: "calc(-50% + 4px)",
   },
   track: {
-    height: 8,
+    height: 5,
     borderRadius: 4,
-    color:"white",
-    background:"#fff"
+    color: "white",
+    background: "#fff"
   },
   rail: {
-    height: 8,
+    height: 5,
     borderRadius: 4,
-    color:"white",
+    color: "white",
   },
 })(Slider);
 
 const PrettoSliderMobile = withStyles({
   root: {
     height: 8,
-    marginTop:15,
+    marginTop: 15,
   },
   thumb: {
     height: 12,
@@ -210,16 +213,7 @@ const Controls = forwardRef(
                   Nayyar Noor Aey Jazbae Dil Gar Mein Chahoon
                 </Typography>
               </Grid>
-              {/* <Grid item>
-              <Button
-                onClick={onBookmark}
-                variant="contained"
-                color="primary"
-                startIcon={<BookmarkIcon />}
-              >
-                Bookmark
-              </Button>
-            </Grid> */}
+
             </Grid>
             <Grid container direction="row" alignItems="center" justify="center">
               <IconButton
@@ -259,59 +253,22 @@ const Controls = forwardRef(
               alignItems="center"
               style={{ padding: 16 }}
             >
-              <Grid item xs={12}>
-                <PrettoSlider
-                  min={0}
-                  max={100}
-                  ValueLabelComponent={(props) => (
-                    <ValueLabelComponent {...props} value={elapsedTime} />
-                  )}
-                  aria-label="custom thumb label"
-                  value={played * 100}
-                  onChange={onSeek}
-                  onMouseDown={onSeekMouseDown}
-                  onChangeCommitted={onSeekMouseUp}
-                  onDuration={onDuration}
-                />
-              </Grid>
 
               <Grid item>
                 <Grid container alignItems="center">
                   <IconButton
                     onClick={onPlayPause}
+                    style={{marginLeft:-17}}
                     className={classes.bottomIcons}
                   >
                     {playing ? (
-                      <PauseIcon fontSize="large" />
+                      <PauseCircleOutlineTwoToneIcon fontSize="large" />
                     ) : (
-                      <PlayArrowIcon fontSize="large" />
+                      <PlayCircleOutlineTwoToneIcon fontSize="large" />
                     )}
                   </IconButton>
 
-                  <IconButton
-                    // onClick={() => setState({ ...state, muted: !state.muted })}
-                    onClick={onMute}
-                    className={`${classes.bottomIcons} ${classes.volumeButton}`}
-                  >
-                    {muted ? (
-                      <VolumeMute fontSize="large" />
-                    ) : volume > 0.5 ? (
-                      <VolumeUp fontSize="large" />
-                    ) : (
-                      <VolumeDown fontSize="large" />
-                    )}
-                  </IconButton>
 
-                  <Slider
-                    min={0}
-                    max={100}
-                    value={muted ? 0 : volume * 100}
-                    onChange={onVolumeChange}
-                    aria-labelledby="input-slider"
-                    className={classes.volumeSlider}
-                    onMouseDown={onSeekMouseDown}
-                    onChangeCommitted={onVolumeSeekDown}
-                  />
                   <Button
                     variant="text"
                     onClick={
@@ -330,19 +287,20 @@ const Controls = forwardRef(
                     </Typography>
                   </Button>
                 </Grid>
-              </Grid>
 
+              </Grid>
               <Grid item>
-                <Button
+                {/* <Button
                   onClick={handleClick}
                   aria-describedby={id}
                   className={classes.bottomIcons}
                   variant="text"
                 >
                   <Typography>{playbackRate}X</Typography>
-                </Button>
+                </Button> */}
 
-                <Popover
+                {/* Not Needed for the Client as speed is not needed */}
+                {/* <Popover
                   container={ref.current}
                   open={open}
                   id={id}
@@ -373,7 +331,36 @@ const Controls = forwardRef(
                       </Button>
                     ))}
                   </Grid>
-                </Popover>
+                </Popover> */}
+                {/* Not Needed for the Client as speed is not needed */}
+
+                {/* This is the volume buttons */}
+                <IconButton
+                  // onClick={() => setState({ ...state, muted: !state.muted })}
+                  onClick={onMute}
+                  className={`${classes.bottomIcons} ${classes.volumeButton}`}
+                >
+                  {muted ? (
+                    <VolumeMute fontSize="large" />
+                  ) : volume > 0.5 ? (
+                    <VolumeUp fontSize="large" />
+                  ) : (
+                    <VolumeDown fontSize="large" />
+                  )}
+                </IconButton>
+
+                <Slider
+                  min={0}
+                  max={100}
+                  value={muted ? 0 : volume * 100}
+                  onChange={onVolumeChange}
+                  aria-labelledby="input-slider"
+                  className={classes.volumeSlider}
+                  onMouseDown={onSeekMouseDown}
+                  onChangeCommitted={onVolumeSeekDown}
+                />
+                {/* This is the volume buttons */}
+
                 <IconButton
                   onClick={onToggleFullScreen}
                   className={classes.bottomIcons}
@@ -387,8 +374,26 @@ const Controls = forwardRef(
                   <PictureInPictureAltTwoToneIcon fontSize="large" />
                 </IconButton>
               </Grid>
+
+              <Grid item xs={12}>
+                <PrettoSlider
+                  min={0}
+                  max={100}
+                  ValueLabelComponent={(props) => (
+                    <ValueLabelComponent {...props} value={elapsedTime} />
+                  )}
+                  aria-label="custom thumb label"
+                  value={played * 100}
+                  onChange={onSeek}
+                  onMouseDown={onSeekMouseDown}
+                  onChangeCommitted={onSeekMouseUp}
+                  onDuration={onDuration}
+                />
+              </Grid>
             </Grid>
+
           </Grid>
+
         </div>
 
 
@@ -461,28 +466,13 @@ const Controls = forwardRef(
               className="WholeControlsMobile"
               style={{ padding: 10 }}
             >
-              <Grid item xs={12}>
-                <PrettoSliderMobile
-                  min={0}
-                  max={100}
-                  ValueLabelComponent={(props) => (
-                    <ValueLabelComponent {...props} value={elapsedTime} />
-                  )}
-                  aria-label="custom thumb label"
-                  value={played * 100}
-                  onChange={onSeek}
-                  className="ProgressBarMobile"
-                  onMouseDown={onSeekMouseDown}
-                  onChangeCommitted={onSeekMouseUp}
-                  onDuration={onDuration}
-                />
-              </Grid>
+
 
               <Grid container
                 direction="row"
                 justify="space-between"
                 alignItems="center"
-                >
+              >
                 <Grid container className="MobileControlsDaikh" alignItems="center">
                   <IconButton
                     onClick={onPlayPause}
@@ -596,8 +586,21 @@ const Controls = forwardRef(
                 </Grid>
               </Grid>
 
-              <Grid item>
-
+              <Grid item xs={12}>
+                <PrettoSliderMobile
+                  min={0}
+                  max={100}
+                  ValueLabelComponent={(props) => (
+                    <ValueLabelComponent {...props} value={elapsedTime} />
+                  )}
+                  aria-label="custom thumb label"
+                  value={played * 100}
+                  onChange={onSeek}
+                  className="ProgressBarMobile"
+                  onMouseDown={onSeekMouseDown}
+                  onChangeCommitted={onSeekMouseUp}
+                  onDuration={onDuration}
+                />
               </Grid>
             </Grid>
           </Grid>
