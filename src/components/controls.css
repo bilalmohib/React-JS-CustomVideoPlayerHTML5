@@ -11,7 +11,10 @@
 
 @media all and (max-width:600px) {
     #MobilePlayer {
-        display: initial;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
     }
     .WholeControlsMobile {
         border: 2px solid yellow !important;

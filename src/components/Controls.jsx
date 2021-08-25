@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   controlIcons: {
-    color: "#777",
+    color: "#fff",
 
     fontSize: 50,
     transform: "scale(0.9)",
@@ -52,13 +52,13 @@ const useStyles = makeStyles((theme) => ({
   },
 
   bottomIcons: {
-    color: "#999",
+    color: "#fff",
     "&:hover": {
       color: "#fff",
     },
   },
   bottomIconsMobile: {
-    color: "#999",
+    color: "#fff",
     "&:hover": {
       color: "#fff",
     },
@@ -258,7 +258,7 @@ const Controls = forwardRef(
                 <Grid container alignItems="center">
                   <IconButton
                     onClick={onPlayPause}
-                    style={{marginLeft:-17}}
+                    style={{ marginLeft: -17 }}
                     className={classes.bottomIcons}
                   >
                     {playing ? (
@@ -368,10 +368,27 @@ const Controls = forwardRef(
                   <FullScreen fontSize="large" />
                 </IconButton>
                 <IconButton
-                  onClick={onHandlePIP}
+
                   className={classes.bottomIcons}
                 >
-                  <PictureInPictureAltTwoToneIcon fontSize="large" />
+                  {/* Default dropstart button */}
+                  <div className="btn-group dropstart">
+                    <span type="button" className="PipButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                      </svg>
+                    </span>
+                    <ul className="dropdown-menu PIPDropDown">
+                      {/* Dropdown menu links */}
+                      <li onClick={onHandlePIP}><a className="dropdown-item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-pip mr-3" viewBox="0 0 16 16">
+                          <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
+                          <path d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3z" />
+                        </svg>
+                        Picture in Picture</a>
+                      </li>
+                    </ul>
+                  </div>
                 </IconButton>
               </Grid>
 
@@ -403,39 +420,32 @@ const Controls = forwardRef(
             container
             direction="column"
             justify="space-between"
+            style={{ flexGrow: 4 }}
           >
             <Grid
               container
               direction="row"
               alignItems="center"
               justify="space-between"
+              style
               style={{ padding: 16 }}
             >
               <Grid item>
-                {/* <Typography variant="h5" style={{ color: "#fff" }}>
-                  Mobile View
-                </Typography> */}
+                <Typography variant="h5" style={{ color: "#fff" }}>
+                  Nayyar Noor Aey Jazbae Dil Gar Mein Chahoon
+                </Typography>
               </Grid>
-              {/* <Grid item>
-              <Button
-                onClick={onBookmark}
-                variant="contained"
-                color="primary"
-                startIcon={<BookmarkIcon />}
-              >
-                Bookmark
-              </Button>
-            </Grid> */}
+
             </Grid>
-            <Grid container direction="row" alignItems="center" justify="center">
+            {/* <Grid container direction="row" alignItems="center" justify="center">
               <IconButton
                 onClick={onRewind}
                 className={classes.controlIcons}
                 aria-label="rewind"
               >
-                {/* ////////////////// */}
                 <FastRewindIcon
-                  fontSize="small"
+                  className={classes.controlIcons}
+                  fontSize="inherit"
                 />
               </IconButton>
               <IconButton
@@ -444,9 +454,9 @@ const Controls = forwardRef(
                 aria-label="play"
               >
                 {playing ? (
-                  <PauseIcon fontSize="small" />
+                  <PauseIcon fontSize="inherit" />
                 ) : (
-                  <PlayArrowIcon fontSize="small" />
+                  <PlayArrowIcon fontSize="inherit" />
                 )}
               </IconButton>
               <IconButton
@@ -454,62 +464,33 @@ const Controls = forwardRef(
                 className={classes.controlIcons}
                 aria-label="forward"
               >
-                <FastForwardIcon fontSize="small" />
+                <FastForwardIcon fontSize="inherit" />
               </IconButton>
-            </Grid>
+            </Grid> */}
             {/* bottom controls */}
             <Grid
               container
               direction="row"
               justify="space-between"
               alignItems="center"
-              className="WholeControlsMobile"
-              style={{ padding: 10 }}
+              style={{ padding: 16 }}
             >
 
-
-              <Grid container
-                direction="row"
-                justify="space-between"
-                alignItems="center"
-              >
-                <Grid container className="MobileControlsDaikh" alignItems="center">
+              <Grid item>
+                <Grid container alignItems="center">
                   <IconButton
                     onClick={onPlayPause}
-                    className={`PlayPauseIconMobile ${classes.bottomIcons}`}
+                    style={{ marginLeft: -17 }}
+                    className={classes.bottomIcons}
                   >
                     {playing ? (
-                      <PauseIcon fontSize="small" />
+                      <PauseCircleOutlineTwoToneIcon fontSize="large" />
                     ) : (
-                      <PlayArrowIcon fontSize="small" />
+                      <PlayCircleOutlineTwoToneIcon fontSize="large" />
                     )}
                   </IconButton>
 
-                  <IconButton
-                    // onClick={() => setState({ ...state, muted: !state.muted })}
-                    onClick={onMute}
-                    className={`volumeMobile ${classes.bottomIcons} ${classes.volumeButton}`}
-                  >
-                    {muted ? (
-                      <VolumeMute fontSize="small" />
-                    ) : volume > 0.5 ? (
-                      <VolumeUp fontSize="small" />
-                    ) : (
-                      <VolumeDown fontSize="small" />
-                    )}
-                  </IconButton>
 
-                  <Slider
-                    min={0}
-                    max={100}
-                    value={muted ? 0 : volume * 100}
-                    onChange={onVolumeChange}
-                    aria-labelledby="input-slider"
-                    className={`${classes.volumeSliderMobile}`}
-                    // className="volumeSlider"
-                    onMouseDown={onSeekMouseDown}
-                    onChangeCommitted={onVolumeSeekDown}
-                  />
                   <Button
                     variant="text"
                     onClick={
@@ -522,72 +503,119 @@ const Controls = forwardRef(
                   >
                     <Typography
                       variant="body1"
-                      style={{ color: "#fff", marginLeft: "8px", fontSize: "15px" }}
+                      style={{ color: "#fff", marginLeft: 16 }}
                     >
                       {elapsedTime}/{totalDuration}
                     </Typography>
                   </Button>
-
-                  {/* This is second grid although it should come up here */}
-                  <Button
-                    onClick={handleClick}
-                    aria-describedby={id}
-                    className={`bottomIconsMobile ${classes.bottomIcons}`}
-                    variant="text"
-                  >
-                    <Typography>{playbackRate}X</Typography>
-                  </Button>
-
-                  <Popover
-                    container={ref.current}
-                    open={open}
-                    id={id}
-                    onClose={handleClose}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "left",
-                    }}
-                    transformOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left",
-                    }}
-                  >
-                    <Grid container direction="column-reverse">
-                      {[0.75, 0.5, 1, 1.5, 2, 2.5, 2.75, 3, 3.5].map((rate) => (
-                        <Button
-                          key={rate}
-                          //   onClick={() => setState({ ...state, playbackRate: rate })}
-                          onClick={() => onPlaybackRateChange(rate)}
-                          variant="text"
-                        >
-                          <Typography
-                            color={rate === playbackRate ? "secondary" : "inherit"}
-                          >
-                            {rate}X
-                          </Typography>
-                        </Button>
-                      ))}
-                    </Grid>
-                  </Popover>
-                  <IconButton
-                    onClick={onToggleFullScreen}
-                    className={`bottomIconsMobile2 ${classes.bottomIcons}`}
-                  >
-                    <FullScreen fontSize="normal" />
-                  </IconButton>
-                  {/* <IconButton
-                    onClick={onHandlePIP}
-                    className={classes.bottomIcons}
-                  >
-                    <PictureInPictureAltTwoToneIcon fontSize="large" />
-                  </IconButton> */}
-                  {/* This is second grid although it should come up here */}
                 </Grid>
+
+              </Grid>
+              <Grid item>
+                {/* <Button
+                  onClick={handleClick}
+                  aria-describedby={id}
+                  className={classes.bottomIcons}
+                  variant="text"
+                >
+                  <Typography>{playbackRate}X</Typography>
+                </Button> */}
+
+                {/* Not Needed for the Client as speed is not needed */}
+                {/* <Popover
+                  container={ref.current}
+                  open={open}
+                  id={id}
+                  onClose={handleClose}
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  transformOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                >
+                  <Grid container direction="column-reverse">
+                    {[0.75, 0.5, 1, 1.5, 2, 2.5, 2.75, 3, 3.5].map((rate) => (
+                      <Button
+                        key={rate}
+                        //   onClick={() => setState({ ...state, playbackRate: rate })}
+                        onClick={() => onPlaybackRateChange(rate)}
+                        variant="text"
+                      >
+                        <Typography
+                          color={rate === playbackRate ? "secondary" : "inherit"}
+                        >
+                          {rate}X
+                        </Typography>
+                      </Button>
+                    ))}
+                  </Grid>
+                </Popover> */}
+                {/* Not Needed for the Client as speed is not needed */}
+
+                {/* This is the volume buttons */}
+                <IconButton
+                  // onClick={() => setState({ ...state, muted: !state.muted })}
+                  onClick={onMute}
+                  className={`${classes.bottomIcons} ${classes.volumeButton}`}
+                >
+                  {muted ? (
+                    <VolumeMute fontSize="large" />
+                  ) : volume > 0.5 ? (
+                    <VolumeUp fontSize="large" />
+                  ) : (
+                    <VolumeDown fontSize="large" />
+                  )}
+                </IconButton>
+
+                <Slider
+                  min={0}
+                  max={100}
+                  value={muted ? 0 : volume * 100}
+                  onChange={onVolumeChange}
+                  aria-labelledby="input-slider"
+                  className={classes.volumeSlider}
+                  onMouseDown={onSeekMouseDown}
+                  onChangeCommitted={onVolumeSeekDown}
+                />
+                {/* This is the volume buttons */}
+
+                <IconButton
+                  onClick={onToggleFullScreen}
+                  className={classes.bottomIcons}
+                >
+                  <FullScreen fontSize="large" />
+                </IconButton>
+                <IconButton
+
+                  className={classes.bottomIcons}
+                >
+                  {/* Default dropstart button */}
+                  <div className="btn-group dropstart">
+                    <span type="button" className="PipButton" data-bs-toggle="dropdown" aria-expanded="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                      </svg>
+                    </span>
+                    <ul className="dropdown-menu PIPDropDown">
+                      {/* Dropdown menu links */}
+                      <li onClick={onHandlePIP}><a className="dropdown-item" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-pip mr-3" viewBox="0 0 16 16">
+                          <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
+                          <path d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3z" />
+                        </svg>
+                        Picture in Picture</a>
+                      </li>
+                    </ul>
+                  </div>
+                </IconButton>
               </Grid>
 
               <Grid item xs={12}>
-                <PrettoSliderMobile
+                <PrettoSlider
                   min={0}
                   max={100}
                   ValueLabelComponent={(props) => (
@@ -596,13 +624,13 @@ const Controls = forwardRef(
                   aria-label="custom thumb label"
                   value={played * 100}
                   onChange={onSeek}
-                  className="ProgressBarMobile"
                   onMouseDown={onSeekMouseDown}
                   onChangeCommitted={onSeekMouseUp}
                   onDuration={onDuration}
                 />
               </Grid>
             </Grid>
+
           </Grid>
         </div>
 

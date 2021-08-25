@@ -5,11 +5,10 @@ import DropDown from "./components/DropDown.jsx";
 function App() {
   return (
     <>
-      <div>
+      <div> 
+        <br />
         <Video />
-      </div>
-      <div>
-        <DropDown />
+        <br />
       </div>
     </>
   )

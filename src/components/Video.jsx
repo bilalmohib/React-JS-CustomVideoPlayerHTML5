@@ -22,9 +22,11 @@ import Popover from "@material-ui/core/Popover";
 import screenful from "screenfull";
 import Controls from "./Controls.jsx";
 
+import "./Video.css";
+
 const useStyles = makeStyles((theme) => ({
   playerWrapper: {
-    width: "100%",
+    width: "60%",
 
     position: "relative",
     // "&:hover": {
@@ -319,7 +321,7 @@ function Video() {
           onMouseMove={handleMouseMove}
           onMouseLeave={hanldeMouseLeave}
           ref={playerContainerRef}
-          className={classes.playerWrapper}
+          className={`playerWrapper`}
         >
 
           <ReactPlayer

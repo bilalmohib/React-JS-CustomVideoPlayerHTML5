@@ -5,16 +5,20 @@
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
+    "@popperjs/core": "^2.9.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-player": "^2.3.1",
     "react-scripts": "3.4.1",
-    "react-use-pip": "^1.4.1",
-    "screenfull": "^5.0.2"
+    "screenfull": "^5.0.2",
+    "sine-waves": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
