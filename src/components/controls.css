@@ -9,6 +9,40 @@
     flex-grow: 1;
 }
 
+.FullScreenMobileBtn {
+    position: relative !important;
+    margin-right: -12px !important;
+}
+
+.MobileTimerVideo {
+    color: #fff;
+    margin-left: 0px;
+}
+
+.volumeSliderMobile {
+    width: 80px !important;
+    margin-bottom: -16px !important;
+    color: #fff !important;
+}
+
+.MobileControlsBtn {
+    padding: 16px;
+    border: 1px solid black;
+    margin-top: 35% !important;
+}
+
+.volumeSlider {
+    width: 100px !important;
+    margin-bottom: 10px !important;
+    color: #fff !important;
+}
+
+@media all and (max-width:1400px) {
+    .volumeSlider {
+        margin-bottom: -15px !important;
+    }
+}
+
 @media all and (max-width:600px) {
     #MobilePlayer {
         display: flex;
@@ -16,377 +50,49 @@
         justify-content: space-between;
         flex-grow: 1;
     }
-    .WholeControlsMobile {
-        border: 2px solid yellow !important;
-        margin-top: 110px !important;
-    }
     #DesktopPlayer {
         display: none;
     }
     .bottomIconsMobile {
         margin-left: 150px !important;
     }
-}
-
-@media all and (max-width:564px) {
-    .bottomIconsMobile {
-        margin-left: 130px !important;
+    .MobileControlsBtn {
+        margin-top: 35% !important;
     }
 }
 
-@media all and (max-width:550px) {
-    .bottomIconsMobile {
-        margin-left: 120px !important;
+@media all and (max-width:450px) {
+    .MobileControlsBtn {
+        margin-top: 33% !important;
     }
 }
 
-@media all and (max-width:530px) {
-    .bottomIconsMobile {
-        margin-left: 100px !important;
-    }
-}
-@media all and (max-width:520px) {
-    .bottomIconsMobile {
-        margin-left: 90px !important;
+@media all and (max-width:420px) {
+    .MobileControlsBtn {
+        margin-top: 30% !important;
     }
 }
 
-@media all and (max-width:500px) {
-    .bottomIconsMobile {
-        margin-left: 80px !important;
+@media all and (max-width:370px) {
+    .MobileControlsBtn {
+        margin-top: 27% !important;
     }
 }
 
-@media all and (max-width:490px) {
-    .bottomIconsMobile {
-        margin-left: 60px !important;
-    }
-}
-
-@media all and (max-width:480px) {
-    .bottomIconsMobile {
-        margin-left: 50px !important;
-    }
-}
-
-@media all and (max-width:468px) {
-    .bottomIconsMobile {
-        margin-left: 40px !important;
-    }
-}
-
-@media all and (max-width:457px) {
-    .bottomIconsMobile {
-        margin-left: 30px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-        margin-bottom: 40px !important;
-    }
-}
-
-@media all and (max-width:447px) {
-    .bottomIconsMobile {
-        margin-left: 20px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:439px) {
-    .bottomIconsMobile {
-        margin-left: 10px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:429px) {
-    .bottomIconsMobile {
-        margin-left: 3px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:422px) {
-    .bottomIconsMobile {
-        margin-left: 0px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:419px) {
-    .bottomIconsMobile {
-        margin-left: -20px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:410px) {
-    .bottomIconsMobile {
-        margin-left: -30px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:389px) {
-    .bottomIconsMobile {
-        margin-left: -40px !important;
-    }
-    .MobileControlsDaikh {
-        border: 1px solid grey !important;
-    }
-    .ProgressBarMobile {
-        margin-top: 0px !important;
-    }
-}
-
-@media all and (max-width:379px) {
-    .bottomIconsMobile {
-        display: none !important;
-    }
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: 20px !important;
-    }
-    .ProgressBarMobile {
-        margin-top: 0px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -10px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:364px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: 13px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -20px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:357px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: 7px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -20px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:350px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: 2px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -20px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:345px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -3px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:341px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -7px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:336px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -12px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
+@media all and (max-width:340px) {
+    .MobileControlsBtn {
+        margin-top: 23% !important;
     }
 }
 
 @media all and (max-width:332px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -0px !important;
-    }
-    .volumeMobile {
-        margin-left: -20px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:327px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -5px !important;
-    }
-    .volumeMobile {
-        margin-left: -20px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:322px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -10px !important;
-    }
-    .volumeMobile {
-        margin-left: -23px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:314px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -15px !important;
-    }
-    .volumeMobile {
-        margin-left: -25px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:308px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -10px !important;
-    }
-    .volumeMobile {
-        margin-left: -25px !important;
-    }
-    .PlayPauseIconMobile {
-        margin-left: -10px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:306px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -15px !important;
-    }
-    .volumeMobile {
-        margin-left: -25px !important;
-    }
-    .PlayPauseIconMobile {
-        margin-left: -10px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:302px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -10px !important;
-    }
-    .volumeMobile {
-        margin-left: -28px !important;
-    }
-    .PlayPauseIconMobile {
-        margin-left: -15px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-@media all and (max-width:299px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
+    .MobileTimerVideo {
+        font-size: 12px !important;
         margin-left: -12px !important;
     }
-    .volumeMobile {
-        margin-left: -28px !important;
-    }
-    .PlayPauseIconMobile {
-        margin-left: -20px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
+    .volumeSliderMobile {
+        width: 50px !important;
+        margin-bottom: -16px !important;
+        color: #fff;
     }
 }
-
-@media all and (max-width:292px) {
-    .bottomIconsMobile2 {
-        /* display: none !important; */
-        margin-left: -15px !important;
-    }
-    .volumeMobile {
-        margin-left: -32px !important;
-    }
-    .PlayPauseIconMobile {
-        margin-left: -22px !important;
-    }
-    .MobileControlsDaikh {
-        margin-top: -33px !important;
-        border: 1px solid grey !important;
-    }
-}
-
-/* #sound-wave2,
-svg#sound-wave {
-  width: 40px;
-  height: 20px;
-  cursor: pointer;
-}
-
-#wave {
-  fill: none;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #fff;
-  transform: translate(0, 50%);
-} */

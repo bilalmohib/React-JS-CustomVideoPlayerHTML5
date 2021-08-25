@@ -66,11 +66,12 @@ const useStyles = makeStyles((theme) => ({
   },
   volumeSlider: {
     width: 100,
-    marginBottom: -10,
+    marginBottom: -15,
     color: "#fff",
   },
   volumeSliderMobile: {
-    width: 50,
+    width: 80,
+    marginBottom: -16,
     color: "#fff",
   },
 }));
@@ -105,37 +106,42 @@ const PrettoSlider = withStyles({
   rail: {
     height: 5,
     borderRadius: 4,
-    color: "white",
+    color: "grey",
   },
 })(Slider);
 
 const PrettoSliderMobile = withStyles({
   root: {
     height: 8,
-    marginTop: 15,
+    marginTop:-15
   },
   thumb: {
-    height: 12,
-    width: 12,
+    height: 15,
+    width: 15,
     backgroundColor: "#fff",
     border: "2px solid currentColor",
-    marginTop: -4,
-    marginLeft: -12,
+    marginTop: -5,
+    marginLeft: -8,
     "&:focus, &:hover, &$active": {
       boxShadow: "inherit",
     },
   },
-  active: {},
+  active: {
+    color: "white"
+  },
   valueLabel: {
     left: "calc(-50% + 4px)",
   },
   track: {
     height: 5,
     borderRadius: 4,
+    color: "white",
+    background: "#fff"
   },
   rail: {
     height: 5,
     borderRadius: 4,
+    color: "grey",
   },
 })(Slider);
 
@@ -355,7 +361,7 @@ const Controls = forwardRef(
                   value={muted ? 0 : volume * 100}
                   onChange={onVolumeChange}
                   aria-labelledby="input-slider"
-                  className={classes.volumeSlider}
+                  className="volumeSlider"
                   onMouseDown={onSeekMouseDown}
                   onChangeCommitted={onVolumeSeekDown}
                 />
@@ -422,21 +428,6 @@ const Controls = forwardRef(
             justify="space-between"
             style={{ flexGrow: 4 }}
           >
-            <Grid
-              container
-              direction="row"
-              alignItems="center"
-              justify="space-between"
-              style
-              style={{ padding: 16 }}
-            >
-              <Grid item>
-                <Typography variant="h5" style={{ color: "#fff" }}>
-                  Nayyar Noor Aey Jazbae Dil Gar Mein Chahoon
-                </Typography>
-              </Grid>
-
-            </Grid>
             {/* <Grid container direction="row" alignItems="center" justify="center">
               <IconButton
                 onClick={onRewind}
@@ -473,7 +464,7 @@ const Controls = forwardRef(
               direction="row"
               justify="space-between"
               alignItems="center"
-              style={{ padding: 16 }}
+              className={`MobileControlsBtn`}
             >
 
               <Grid item>
@@ -484,9 +475,9 @@ const Controls = forwardRef(
                     className={classes.bottomIcons}
                   >
                     {playing ? (
-                      <PauseCircleOutlineTwoToneIcon fontSize="large" />
+                      <PauseCircleOutlineTwoToneIcon fontSize="small" />
                     ) : (
-                      <PlayCircleOutlineTwoToneIcon fontSize="large" />
+                      <PlayCircleOutlineTwoToneIcon fontSize="small" />
                     )}
                   </IconButton>
 
@@ -503,7 +494,7 @@ const Controls = forwardRef(
                   >
                     <Typography
                       variant="body1"
-                      style={{ color: "#fff", marginLeft: 16 }}
+                      className="MobileTimerVideo"
                     >
                       {elapsedTime}/{totalDuration}
                     </Typography>
@@ -563,11 +554,11 @@ const Controls = forwardRef(
                   className={`${classes.bottomIcons} ${classes.volumeButton}`}
                 >
                   {muted ? (
-                    <VolumeMute fontSize="large" />
+                    <VolumeMute fontSize="small" />
                   ) : volume > 0.5 ? (
-                    <VolumeUp fontSize="large" />
+                    <VolumeUp fontSize="small" />
                   ) : (
-                    <VolumeDown fontSize="large" />
+                    <VolumeDown fontSize="small" />
                   )}
                 </IconButton>
 
@@ -577,7 +568,8 @@ const Controls = forwardRef(
                   value={muted ? 0 : volume * 100}
                   onChange={onVolumeChange}
                   aria-labelledby="input-slider"
-                  className={classes.volumeSlider}
+                  // className={classes.volumeSliderMobile}
+                  className={`volumeSliderMobile`}
                   onMouseDown={onSeekMouseDown}
                   onChangeCommitted={onVolumeSeekDown}
                 />
@@ -585,15 +577,12 @@ const Controls = forwardRef(
 
                 <IconButton
                   onClick={onToggleFullScreen}
-                  className={classes.bottomIcons}
+                  className={`FullScreenMobileBtn ${classes.bottomIcons}`}
                 >
-                  <FullScreen fontSize="large" />
+                  <FullScreen fontSize="small" />
                 </IconButton>
-                <IconButton
-
-                  className={classes.bottomIcons}
-                >
-                  {/* Default dropstart button */}
+                {/* The Pciture in Picture functionality is not needed in Mobile View */}
+                {/* <IconButton className={classes.bottomIcons}>
                   <div className="btn-group dropstart">
                     <span type="button" className="PipButton" data-bs-toggle="dropdown" aria-expanded="false">
                       <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -601,7 +590,6 @@ const Controls = forwardRef(
                       </svg>
                     </span>
                     <ul className="dropdown-menu PIPDropDown">
-                      {/* Dropdown menu links */}
                       <li onClick={onHandlePIP}><a className="dropdown-item" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" className="bi bi-pip mr-3" viewBox="0 0 16 16">
                           <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
@@ -611,11 +599,12 @@ const Controls = forwardRef(
                       </li>
                     </ul>
                   </div>
-                </IconButton>
+                </IconButton> */}
+                {/* The Pciture in Picture functionality is not needed in Mobile View */}
               </Grid>
 
               <Grid item xs={12}>
-                <PrettoSlider
+                <PrettoSliderMobile
                   min={0}
                   max={100}
                   ValueLabelComponent={(props) => (
