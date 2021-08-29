@@ -33,8 +33,9 @@
 
 .volumeSlider {
     width: 100px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: -20px !important;
     color: #fff !important;
+    margin-right: 25px !important;
 }
 
 @media all and (max-width:1400px) {

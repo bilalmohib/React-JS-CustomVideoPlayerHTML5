@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -20,6 +20,7 @@ import VolumeMute from "@material-ui/icons/VolumeOff";
 import FullScreen from "@material-ui/icons/Fullscreen";
 import Popover from "@material-ui/core/Popover";
 import PictureInPictureAltTwoToneIcon from '@material-ui/icons/PictureInPictureAltTwoTone';
+import SineWaves from "sine-waves";
 import "./controls.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -113,7 +114,7 @@ const PrettoSlider = withStyles({
 const PrettoSliderMobile = withStyles({
   root: {
     height: 8,
-    marginTop:-15
+    marginTop: -15
   },
   thumb: {
     height: 15,
@@ -195,6 +196,55 @@ const Controls = forwardRef(
 
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
+
+    useEffect(() => {
+      /*
+   * Demo of https://github.com/isuttell/sine-waves
+   */
+
+      var waves = new SineWaves({
+        el: document.getElementById('waves'),
+        speed: 9,
+
+
+        ease: 'SineInOut',
+
+        wavesWidth: '100%',
+
+        waves: [
+          {
+            timeModifier: 4,
+            lineWidth: 2,
+            amplitude: -7,
+            wavelength: 9,
+            segmentLength: 2, // 
+            strokeStyle: 'rgba(0,0,0,1)',
+            type: function (x, waves) {
+              return ((Math.sin(x) * waves.sin(x)) / waves.sin(x)); // Combine two together
+            }
+          }
+        ],
+
+        // Called on window resize
+        resizeEvent: function () {
+          var gradient = this.ctx.createLinearGradient(0, 0, 100, 0);
+          gradient.addColorStop(0, "rgba(255,255,255, 0.9)");
+          gradient.addColorStop(0.5, "rgba(255,255,255, 0.9)");
+          gradient.addColorStop(1, "rgba(255,255,255, 0.9)");
+
+          var index = -1;
+          var length = this.waves.length;
+          while (++index < length) {
+            this.waves[index].strokeStyle = gradient;
+          }
+
+          // Clean Up
+          index = void 0;
+          length = void 0;
+          gradient = void 0;
+        }
+      });
+    })
 
     return (
       <div ref={ref} className={classes.controlsWrapper} >
@@ -347,15 +397,47 @@ const Controls = forwardRef(
                   className={`${classes.bottomIcons} ${classes.volumeButton}`}
                 >
                   {muted ? (
-                    <VolumeMute fontSize="large" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   ) : volume > 0.5 ? (
-                    <VolumeUp fontSize="large" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   ) : (
-                    <VolumeDown fontSize="large" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   )}
                 </IconButton>
 
-                <Slider
+                {muted ? (
+                  <></>
+                ) : volume > 0.5 ? (
+                  <Slider
+                    min={0}
+                    max={100}
+                    value={muted ? 0 : volume * 100}
+                    onChange={onVolumeChange}
+                    aria-labelledby="input-slider"
+                    className="volumeSlider"
+                    onMouseDown={onSeekMouseDown}
+                    onChangeCommitted={onVolumeSeekDown}
+                  />
+                ) : (
+                  <Slider
+                    min={0}
+                    max={100}
+                    value={muted ? 0 : volume * 100}
+                    onChange={onVolumeChange}
+                    aria-labelledby="input-slider"
+                    className="volumeSlider"
+                    onMouseDown={onSeekMouseDown}
+                    onChangeCommitted={onVolumeSeekDown}
+                  />
+                )}
+
+                {/* <Slider
                   min={0}
                   max={100}
                   value={muted ? 0 : volume * 100}
@@ -364,7 +446,7 @@ const Controls = forwardRef(
                   className="volumeSlider"
                   onMouseDown={onSeekMouseDown}
                   onChangeCommitted={onVolumeSeekDown}
-                />
+                /> */}
                 {/* This is the volume buttons */}
 
                 <IconButton
@@ -554,25 +636,45 @@ const Controls = forwardRef(
                   className={`${classes.bottomIcons} ${classes.volumeButton}`}
                 >
                   {muted ? (
-                    <VolumeMute fontSize="small" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   ) : volume > 0.5 ? (
-                    <VolumeUp fontSize="small" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   ) : (
-                    <VolumeDown fontSize="small" />
+                    <div id="container">
+                      <canvas id="waves"></canvas>
+                    </div>
                   )}
                 </IconButton>
 
-                <Slider
-                  min={0}
-                  max={100}
-                  value={muted ? 0 : volume * 100}
-                  onChange={onVolumeChange}
-                  aria-labelledby="input-slider"
-                  // className={classes.volumeSliderMobile}
-                  className={`volumeSliderMobile`}
-                  onMouseDown={onSeekMouseDown}
-                  onChangeCommitted={onVolumeSeekDown}
-                />
+                {muted ? (
+                  <></>
+                ) : volume > 0.5 ? (
+                  <Slider
+                    min={0}
+                    max={100}
+                    value={muted ? 0 : volume * 100}
+                    onChange={onVolumeChange}
+                    aria-labelledby="input-slider"
+                    className="volumeSliderMobile"
+                    onMouseDown={onSeekMouseDown}
+                    onChangeCommitted={onVolumeSeekDown}
+                  />
+                ) : (
+                  <Slider
+                    min={0}
+                    max={100}
+                    value={muted ? 0 : volume * 100}
+                    onChange={onVolumeChange}
+                    aria-labelledby="input-slider"
+                    className="volumeSliderMobile"
+                    onMouseDown={onSeekMouseDown}
+                    onChangeCommitted={onVolumeSeekDown}
+                  />
+                )}
                 {/* This is the volume buttons */}
 
                 <IconButton
